@@ -18,7 +18,9 @@ public class MessageController {
 
     @PostMapping("/produce")
     public ResponseEntity<String> sendJsonMessage(@RequestBody Keyword keyword) {
-        kafkaProducer.sendMessage(keyword);
+        for (int i = 0; i < 10000; i++) {
+            kafkaProducer.sendMessage(keyword);
+        }
         return ResponseEntity.ok("Message queued successfully");
     }
 }

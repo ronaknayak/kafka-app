@@ -12,6 +12,7 @@ public class KafkaConfig {
     public NewTopic learningTopic() {
         return TopicBuilder
                 .name("learning-kafka")
+                .partitions(3)
                 .build();
     }
 }
