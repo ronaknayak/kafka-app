@@ -9,8 +9,23 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class KafkaConsumer {
     @KafkaListener(topics = "learning-kafka", groupId = "kafka-app-group")
-    public void consumeJsonMsg(Keyword keyword) {
-        log.info(String.format("Consuming the message from learning Topic:: %s", keyword));
+    public void consumer1(Keyword keyword) {
+        log.info(String.format("Consumer1 - Consuming the message from learning Topic:: %s", keyword));
+    }
+
+    @KafkaListener(topics = "learning-kafka", groupId = "kafka-app-group")
+    public void consumer2(Keyword keyword) {
+        log.info(String.format("Consumer2 - Consuming the message from learning Topic:: %s", keyword));
+    }
+
+    @KafkaListener(topics = "learning-kafka", groupId = "kafka-app-group")
+    public void consumer3(Keyword keyword) {
+        log.info(String.format("Consumer3 - Consuming the message from learning Topic:: %s", keyword));
+    }
+
+    @KafkaListener(topics = "learning-kafka", groupId = "kafka-app-group")
+    public void consumer4(Keyword keyword) {
+        log.info(String.format("Consumer4 - Consuming the message from learning Topic:: %s", keyword));
     }
 
 }
