@@ -15,10 +15,19 @@ public class KafkaProducer {
     private final KafkaTemplate<String, Keyword> kafkaTemplate;
 
     public void sendMessage(Keyword keyword) {
-        Message<Keyword> message = MessageBuilder
+        /*Message<Keyword> message = MessageBuilder
                 .withPayload(keyword)
                 .setHeader(KafkaHeaders.TOPIC, "learning-kafka")
                 .build();
-        kafkaTemplate.send(message);
+        kafkaTemplate.send(message);*/
+
+        keyword.setKeyword("First Partition");
+        kafkaTemplate.send("learning-kafka", 0, null, keyword);
+
+        keyword.setKeyword("Second Partition");
+        kafkaTemplate.send("learning-kafka", 1, null, keyword);
+
+        keyword.setKeyword("Third Partition");
+        kafkaTemplate.send("learning-kafka", 2, null, keyword);
     }
 }
