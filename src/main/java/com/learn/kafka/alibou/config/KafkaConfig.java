@@ -15,4 +15,12 @@ public class KafkaConfig {
                 .partitions(3)
                 .build();
     }
+
+    @Bean
+    public NewTopic learningAvroTopic() {
+        return TopicBuilder
+                .name("learning-kafka-avro")
+                .partitions(3)
+                .build();
+    }
 }

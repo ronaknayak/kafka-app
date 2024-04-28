@@ -1,0 +1,19 @@
+{
+  "namespace": "com.learn.kafka.avro.dto",
+  "type": "record",
+  "name": "Page",
+  "fields": [
+    {
+      "name": "index",
+      "type": "int"
+    },
+    {
+      "name": "eventId",
+      "type": "string"
+    },
+    {
+      "name": "requestUrl",
+      "type": "string"
+    }
+  ]
+}

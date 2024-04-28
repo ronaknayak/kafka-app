@@ -2,6 +2,7 @@ package com.learn.kafka.alibou.controller;
 
 import com.learn.kafka.alibou.payload.Keyword;
 import com.learn.kafka.alibou.producer.KafkaProducer;
+import com.learn.kafka.avro.dto.Page;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,12 @@ public class MessageController {
         for (int i = 0; i < 10000; i++) {
             kafkaProducer.sendMessage(keyword);
         }
+        return ResponseEntity.ok("Message queued successfully");
+    }
+
+    @PostMapping("/produce/avro")
+    public ResponseEntity<String> sendAvroMessage(@RequestBody Page page) {
+        kafkaProducer.sendAvroMessage(page);
         return ResponseEntity.ok("Message queued successfully");
     }
 }
